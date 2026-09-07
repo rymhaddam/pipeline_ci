@@ -10,6 +10,8 @@ jobs:
       - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - uses: actions/checkout@v4
       - run: python job.py
+        env:
+          SECRET_API_TOKEN: ${{ secrets.SECRET_API_TOKEN }}
       - run: echo "coucou depuis la pipeline" > output.txt
       - uses: actions/upload-artifact@v4
         with:
